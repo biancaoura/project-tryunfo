@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import AllCards from './components/AllCards';
 
 class App extends React.Component {
   state = {
@@ -110,6 +111,9 @@ class App extends React.Component {
           onSaveButtonClick={ onSaveButtonClick }
         />
         <Card
+          { ...this.state }
+        />
+        <AllCards
           { ...this.state }
         />
       </div>
