@@ -85,7 +85,18 @@ class App extends React.Component {
   saveCard = (card) => {
     this.setState(({ savedCards }) => ({
       savedCards: [...savedCards, card],
-    }));
+    }), this.findTrunfo);
+  }
+
+  findTrunfo = () => {
+    const { savedCards } = this.state;
+    const trunfo = savedCards.some((el) => el.cardTrunfo === true);
+
+    if (trunfo) {
+      this.setState({
+        hasTrunfo: true,
+      });
+    }
   }
 
   render() {
