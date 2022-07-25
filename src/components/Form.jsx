@@ -31,6 +31,7 @@ class Form extends Component {
             data-testid="name-input"
             value={ cardName }
             onChange={ onInputChange }
+            required
           />
         </label>
 
@@ -140,32 +141,18 @@ class Form extends Component {
 }
 
 Form.propTypes = {
-  cardName: PropTypes.string,
-  cardDescription: PropTypes.string,
-  cardAttr1: PropTypes.string,
-  cardAttr2: PropTypes.string,
-  cardAttr3: PropTypes.string,
-  cardImage: PropTypes.string,
-  cardRare: PropTypes.string,
-  cardTrunfo: PropTypes.bool,
-  hasTrunfo: PropTypes.bool,
-  isSaveButtonDisabled: PropTypes.bool,
-  onInputChange: PropTypes.func,
-  onSaveButtonClick: PropTypes.func,
+  cardName: PropTypes.string.isRequired,
+  cardDescription: PropTypes.string.isRequired,
+  cardAttr1: PropTypes.string.isRequired,
+  cardAttr2: PropTypes.string.isRequired,
+  cardAttr3: PropTypes.string.isRequired,
+  cardImage: PropTypes.string.isRequired,
+  cardRare: PropTypes.string.isRequired,
+  cardTrunfo: PropTypes.bool.isRequired,
+  hasTrunfo: PropTypes.bool.isRequired,
+  isSaveButtonDisabled: PropTypes.bool.isRequired,
+  onInputChange: PropTypes.func.isRequired,
+  onSaveButtonClick: PropTypes.func.isRequired,
 };
 
-Form.defaultProps = {
-  cardName: 'nome da carta',
-  cardDescription: 'descrição da carta',
-  cardAttr1: 'atributo 1',
-  cardAttr2: 'atributo 2',
-  cardAttr3: 'atributo 3',
-  cardImage: 'imagem da carta',
-  cardRare: 'raridade da carta',
-  cardTrunfo: false,
-  hasTrunfo: false,
-  isSaveButtonDisabled: true,
-  onInputChange: () => {},
-  onSaveButtonClick: () => {},
-};
 export default Form;
