@@ -3,22 +3,19 @@ import Form from './components/Form';
 import Card from './components/Card';
 
 class App extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      cardName: '',
-      cardDescription: '',
-      cardAttr1: '',
-      cardAttr2: '',
-      cardAttr3: '',
-      cardImage: '',
-      cardRare: '',
-      cardTrunfo: false,
-      hasTrunfo: false,
-      isSaveButtonDisabled: true,
-    };
-  }
+  state = {
+    cardName: '',
+    cardDescription: '',
+    cardAttr1: '0',
+    cardAttr2: '0',
+    cardAttr3: '0',
+    cardImage: '',
+    cardRare: 'normal',
+    cardTrunfo: false,
+    hasTrunfo: false,
+    isSaveButtonDisabled: true,
+    savedCards: [],
+  };
 
   handleChange = ({ target }) => {
     const { name } = target;
@@ -40,7 +37,7 @@ class App extends React.Component {
     } = this.state;
 
     const attr = this.verifyAttributes(cardAttr1, cardAttr2, cardAttr3);
-    console.log(cardName);
+
     if (cardName && cardDescription && cardImage && cardRare && attr) {
       this.setState({
         isSaveButtonDisabled: false,
@@ -66,45 +63,43 @@ class App extends React.Component {
     return isValid;
   }
 
+  onSaveButtonClick = () => {
+    const cardObj = { ...this.state };
+
+    this.saveCard(cardObj);
+    this.clearForm();
+  }
+
+  clearForm = () => {
+    this.setState({
+      cardName: '',
+      cardDescription: '',
+      cardImage: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
+      cardRare: 'normal',
+    });
+  }
+
+  saveCard = (card) => {
+    this.setState(({ savedCards }) => ({
+      savedCards: [...savedCards, card],
+    }));
+  }
+
   render() {
-    const {
-      cardName,
-      cardDescription,
-      cardAttr1,
-      cardAttr2,
-      cardAttr3,
-      cardImage,
-      cardRare,
-      cardTrunfo,
-      hasTrunfo,
-      isSaveButtonDisabled,
-    } = this.state;
-    const { handleChange } = this;
+    const { handleChange, onSaveButtonClick } = this;
 
     return (
       <div>
         <Form
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardImage={ cardImage }
-          cardRare={ cardRare }
-          cardTrunfo={ cardTrunfo }
-          hasTrunfo={ hasTrunfo }
-          isSaveButtonDisabled={ isSaveButtonDisabled }
+          { ...this.state }
           onInputChange={ handleChange }
+          onSaveButtonClick={ onSaveButtonClick }
         />
         <Card
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardImage={ cardImage }
-          cardRare={ cardRare }
-          cardTrunfo={ cardTrunfo }
+          { ...this.state }
         />
       </div>
     );
