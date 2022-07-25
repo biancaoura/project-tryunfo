@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 class Form extends Component {
   render() {
+    const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage, cardRare, cardTrunfo, hasTrunfo, isSaveButtonDisabled, onInputChange, onSaveButtonClick } = this.props;
+
     return (
       <div>
 
@@ -13,6 +15,8 @@ class Form extends Component {
             name="name-input"
             id="name-input"
             data-testid="name-input"
+            value={ cardName }
+            onChange={ onInputChange }
           />
         </label>
 
@@ -23,6 +27,8 @@ class Form extends Component {
             name="description-input"
             data-testid="description-input"
             id="description-input"
+            value={ cardDescription }
+            onChange={ onInputChange }
           />
         </label>
 
@@ -34,6 +40,8 @@ class Form extends Component {
             name="attr1-input"
             data-testid="attr1-input"
             id="attr1-input"
+            value={ cardAttr1 }
+            onChange={ onInputChange }
           />
         </label>
 
@@ -45,6 +53,8 @@ class Form extends Component {
             name="attr2-input"
             data-testid="attr2-input"
             id="attr2-input"
+            value={ cardAttr2 }
+            onChange={ onInputChange }
           />
         </label>
 
@@ -56,6 +66,8 @@ class Form extends Component {
             name="attr3"
             data-testid="attr3-input"
             id="attr3-input"
+            value={ cardAttr3 }
+            onChange={ onInputChange }
           />
         </label>
 
@@ -67,6 +79,8 @@ class Form extends Component {
             name="image-input"
             data-testid="image-input"
             id="image-input"
+            value={ cardImage }
+            onChange={ onInputChange }
           />
         </label>
 
@@ -77,6 +91,8 @@ class Form extends Component {
             name="rare-input"
             data-testid="rare-input"
             id="rare-input"
+            value={ cardRare }
+            onChange={ onInputChange }
           >
             <option value="normal">Normal</option>
             <option value="raro">Raro</option>
@@ -90,6 +106,8 @@ class Form extends Component {
             name="trunfo-input"
             data-testid="trunfo-input"
             id="trunfo-input"
+            checked={ cardTrunfo }
+            onChange={ onInputChange }
           />
           Super Trunfo?
         </label>
@@ -97,6 +115,8 @@ class Form extends Component {
         <button
           type="button"
           data-testid="save-button"
+          disabled={ isSaveButtonDisabled }
+          onClick={ onSaveButtonClick }
         >
           Salvar
         </button>
