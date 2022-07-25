@@ -1,8 +1,22 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Form extends Component {
   render() {
-    const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage, cardRare, cardTrunfo, hasTrunfo, isSaveButtonDisabled, onInputChange, onSaveButtonClick } = this.props;
+    const {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+      hasTrunfo,
+      isSaveButtonDisabled,
+      onInputChange,
+      onSaveButtonClick,
+    } = this.props;
 
     return (
       <div>
@@ -12,7 +26,7 @@ class Form extends Component {
 
           <input
             type="text"
-            name="name-input"
+            name="cardName"
             id="name-input"
             data-testid="name-input"
             value={ cardName }
@@ -24,7 +38,7 @@ class Form extends Component {
           Descrição da carta
 
           <textarea
-            name="description-input"
+            name="cardDescription"
             data-testid="description-input"
             id="description-input"
             value={ cardDescription }
@@ -37,7 +51,7 @@ class Form extends Component {
 
           <input
             type="number"
-            name="attr1-input"
+            name="cardAttr1"
             data-testid="attr1-input"
             id="attr1-input"
             value={ cardAttr1 }
@@ -50,7 +64,7 @@ class Form extends Component {
 
           <input
             type="number"
-            name="attr2-input"
+            name="cardAttr2"
             data-testid="attr2-input"
             id="attr2-input"
             value={ cardAttr2 }
@@ -63,7 +77,7 @@ class Form extends Component {
 
           <input
             type="number"
-            name="attr3"
+            name="cardAttr3"
             data-testid="attr3-input"
             id="attr3-input"
             value={ cardAttr3 }
@@ -76,7 +90,7 @@ class Form extends Component {
 
           <input
             type="text"
-            name="image-input"
+            name="cardImage"
             data-testid="image-input"
             id="image-input"
             value={ cardImage }
@@ -88,7 +102,7 @@ class Form extends Component {
           Raridade
 
           <select
-            name="rare-input"
+            name="cardRare"
             data-testid="rare-input"
             id="rare-input"
             value={ cardRare }
@@ -103,7 +117,7 @@ class Form extends Component {
         <label htmlFor="trunfo-input">
           <input
             type="checkbox"
-            name="trunfo-input"
+            name="cardTrunfo"
             data-testid="trunfo-input"
             id="trunfo-input"
             checked={ cardTrunfo }
@@ -125,4 +139,33 @@ class Form extends Component {
   }
 }
 
+Form.propTypes = {
+  cardName: PropTypes.string,
+  cardDescription: PropTypes.string,
+  cardAttr1: PropTypes.string,
+  cardAttr2: PropTypes.string,
+  cardAttr3: PropTypes.string,
+  cardImage: PropTypes.string,
+  cardRare: PropTypes.string,
+  cardTrunfo: PropTypes.bool,
+  hasTrunfo: PropTypes.bool,
+  isSaveButtonDisabled: PropTypes.bool,
+  onInputChange: PropTypes.func,
+  onSaveButtonClick: PropTypes.func,
+};
+
+Form.defaultProps = {
+  cardName: 'nome da carta',
+  cardDescription: 'descrição da carta',
+  cardAttr1: 'atributo 1',
+  cardAttr2: 'atributo 2',
+  cardAttr3: 'atributo 3',
+  cardImage: 'imagem da carta',
+  cardRare: 'raridade da carta',
+  cardTrunfo: false,
+  hasTrunfo: false,
+  isSaveButtonDisabled: true,
+  onInputChange: () => {},
+  onSaveButtonClick: () => {},
+};
 export default Form;
