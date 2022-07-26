@@ -20,6 +20,7 @@ class Filters extends Component {
             placeholder="Nome da carta"
             value={ filterName }
             onChange={ onInputChange }
+            disabled={ filterTrunfo }
           />
         </label>
 
@@ -32,6 +33,7 @@ class Filters extends Component {
             id="rare-filter"
             value={ filterRare }
             onChange={ onInputChange }
+            disabled={ filterTrunfo }
           >
             <option value="todas">Todas</option>
             <option value="normal">Normal</option>
