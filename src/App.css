@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;300&display=swap') ;
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
-  font-family: Work Sans, sans-serif;
+  font-family: Work Sans , sans-serif;
 }
 
 main {
@@ -24,34 +24,30 @@ main {
   border-radius: 1em;
   display: flex;
   flex-direction: column;
-  /* height: 50vh; */
 }
 
 .form.container {
-  width: 30%;
   gap: 1em;
+  width: 30%;
 }
 
 .preview.container {
-  width: 20%;
-  /* border: 1px solid black; */
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  /* height: 50vh; */
+  width: 20%;
 }
 
 .card.container {
-  width: 20%;
   padding-top: 0;
+  width: 20%;
 }
 
-.saved.container,
-.saved.container .preview.container {
-  width: 100%;
-  text-align: center;
+.saved.container, .saved.container .preview.container {
   margin: 0 auto;
   padding: 0;
+  text-align: center;
+  width: 100%;
 }
 
 .filter.container {
@@ -68,12 +64,10 @@ img {
   max-width: 80%;
 }
 
-input,
-textarea,
-select {
+input, textarea, select {
   margin: 0 10px;
 }
 
-input[type="checkbox"] {
+input[ type = 'checkbox' ] {
   margin-left: 0;
 }
