@@ -100,8 +100,21 @@ class App extends React.Component {
     }
   }
 
+  deleteButton = ({ target }) => {
+    const { id } = target;
+    const { savedCards } = this.state;
+
+    const updateCards = savedCards.filter((_, index) => index !== Number(id));
+    const isTrunfo = savedCards[id].cardTrunfo;
+
+    this.setState({
+      hasTrunfo: !isTrunfo,
+      savedCards: updateCards,
+    });
+  }
+
   render() {
-    const { handleChange, onSaveButtonClick } = this;
+    const { handleChange, onSaveButtonClick, deleteButton } = this;
 
     return (
       <div>
@@ -115,6 +128,7 @@ class App extends React.Component {
         />
         <AllCards
           { ...this.state }
+          deleteButton={ deleteButton }
         />
       </div>
     );
