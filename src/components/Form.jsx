@@ -19,7 +19,9 @@ class Form extends Component {
     } = this.props;
 
     return (
-      <div>
+      <section className="form container input">
+
+        <h1>Criar carta</h1>
 
         <label htmlFor="name-input">
           Nome da carta
@@ -140,7 +142,7 @@ class Form extends Component {
         >
           Salvar
         </button>
-      </div>
+      </section>
     );
   }
 }

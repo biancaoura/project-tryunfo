@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Work Sans, sans-serif;
+}
+
+main {
+  display: flex;
+}
+
+.container {
+  margin: 1em;
+  padding: 1.2em;
+}
+
+.container.input {
+  border: 1px solid black;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  /* height: 50vh; */
+}
+
+.form.container {
+  width: 30%;
+  gap: 1em;
+}
+
+.preview.container {
+  width: 20%;
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* height: 50vh; */
+}
+
+.card.container {
+  width: 20%;
+  padding-top: 0;
+}
+
+.saved.container,
+.saved.container .preview.container {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.filter.container {
+  gap: 1em;
+}
+
+button {
+  padding: 0.5em;
+  border: 1px solid rgb(181, 181, 181);
+  border-radius: 0.4em;
+}
+
+img {
+  max-width: 80%;
+}
+
+input,
+textarea,
+select {
+  margin: 0 10px;
+}
+
+input[type="checkbox"] {
+  margin-left: 0;
+}

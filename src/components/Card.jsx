@@ -15,7 +15,7 @@ class Card extends Component {
     } = this.props;
 
     return (
-      <div>
+      <section className="preview container">
         <h1
           data-testid="name-card"
         >
@@ -35,7 +35,7 @@ class Card extends Component {
 
         {cardTrunfo ? <p data-testid="trunfo-card">Super Trunfo</p> : ''}
 
-      </div>
+      </section>
     );
   }
 }

@@ -17,7 +17,6 @@ class AllCards extends Component {
       const rareFilter = nameFilter
         .filter(({ cardRare }) => cardRare === filterRare);
 
-      console.log(rareFilter);
       return filterRare === 'todas' ? nameFilter : rareFilter;
     };
 
