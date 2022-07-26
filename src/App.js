@@ -2,6 +2,7 @@ import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
 import AllCards from './components/AllCards';
+import Filters from './components/Filters';
 
 class App extends React.Component {
   state = {
@@ -16,6 +17,7 @@ class App extends React.Component {
     hasTrunfo: false,
     isSaveButtonDisabled: true,
     savedCards: [],
+    filterName: '',
   };
 
   handleChange = ({ target }) => {
@@ -118,18 +120,27 @@ class App extends React.Component {
 
     return (
       <div>
+
         <Form
           { ...this.state }
           onInputChange={ handleChange }
           onSaveButtonClick={ onSaveButtonClick }
         />
+
         <Card
           { ...this.state }
         />
+
         <AllCards
           { ...this.state }
           deleteButton={ deleteButton }
         />
+
+        <Filters
+          { ...this.state }
+          onInputChange={ handleChange }
+        />
+
       </div>
     );
   }

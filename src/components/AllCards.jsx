@@ -4,28 +4,33 @@ import Card from './Card';
 
 class AllCards extends Component {
   render() {
-    const { savedCards, deleteButton } = this.props;
+    const { savedCards, deleteButton, filterName } = this.props;
+
+    const filteredCard = savedCards
+      .filter((card) => card.cardName.includes(filterName));
+
     return (
       <div>
         {
-          savedCards.map((cardInfo, index) => (
-            <section key={ index }>
+          filteredCard
+            .map((cardInfo, index) => (
+              <section key={ index }>
 
-              <Card
-                { ...cardInfo }
-              />
+                <Card
+                  { ...cardInfo }
+                />
 
-              <button
-                id={ index }
-                type="button"
-                data-testid="delete-button"
-                onClick={ deleteButton }
-              >
-                Excluir
-              </button>
+                <button
+                  id={ index }
+                  type="button"
+                  data-testid="delete-button"
+                  onClick={ deleteButton }
+                >
+                  Excluir
+                </button>
 
-            </section>
-          ))
+              </section>
+            ))
         }
       </div>
     );
@@ -35,6 +40,7 @@ class AllCards extends Component {
 AllCards.propTypes = {
   savedCards: PropTypes.arrayOf(PropTypes.object).isRequired,
   deleteButton: PropTypes.func.isRequired,
+  filterName: PropTypes.string.isRequired,
 };
 
 export default AllCards;
