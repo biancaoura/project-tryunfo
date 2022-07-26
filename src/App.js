@@ -3,6 +3,7 @@ import Form from './components/Form';
 import Card from './components/Card';
 import AllCards from './components/AllCards';
 import Filters from './components/Filters';
+import './App.css';
 
 class App extends React.Component {
   state = {
@@ -18,6 +19,8 @@ class App extends React.Component {
     isSaveButtonDisabled: true,
     savedCards: [],
     filterName: '',
+    filterRare: 'todas',
+    filterTrunfo: false,
   };
 
   handleChange = ({ target }) => {
@@ -98,6 +101,7 @@ class App extends React.Component {
     if (trunfo) {
       this.setState({
         hasTrunfo: true,
+        cardTrunfo: false,
       });
     }
   }
@@ -119,7 +123,7 @@ class App extends React.Component {
     const { handleChange, onSaveButtonClick, deleteButton } = this;
 
     return (
-      <div>
+      <main>
 
         <Form
           { ...this.state }
@@ -141,7 +145,7 @@ class App extends React.Component {
           onInputChange={ handleChange }
         />
 
-      </div>
+      </main>
     );
   }
 }

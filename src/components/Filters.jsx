@@ -3,33 +3,69 @@ import PropTypes from 'prop-types';
 
 class Filters extends Component {
   render() {
-    const { filterName, onInputChange } = this.props;
+    const { onInputChange, filterName, filterRare, filterTrunfo } = this.props;
 
     return (
-      <div>
+      <section className="filter container input">
 
+        <h1>Filtros</h1>
         <label htmlFor="name-filter">
-          Buscar carta
+          Nome
 
           <input
             type="text"
             name="filterName"
+            data-testid="name-filter"
             id="name-filter"
             placeholder="Nome da carta"
-            data-testid="name-filter"
             value={ filterName }
             onChange={ onInputChange }
           />
         </label>
 
-      </div>
+        <label htmlFor="rare-filter">
+          Raridade
+
+          <select
+            name="filterRare"
+            data-testid="rare-filter"
+            id="rare-filter"
+            value={ filterRare }
+            onChange={ onInputChange }
+          >
+            <option value="todas">Todas</option>
+            <option value="normal">Normal</option>
+            <option value="raro">Raro</option>
+            <option value="muito raro">Muito raro</option>
+
+          </select>
+
+        </label>
+
+        <label htmlFor="trunfo-filter">
+
+          <input
+            type="checkbox"
+            name="filterTrunfo"
+            id="trunfo-filter"
+            data-testid="trunfo-filter"
+            checked={ filterTrunfo }
+            onChange={ onInputChange }
+          />
+          Super Trunfo
+
+        </label>
+
+      </section>
     );
   }
 }
 
 Filters.propTypes = {
-  filterName: PropTypes.string.isRequired,
   onInputChange: PropTypes.func.isRequired,
+  filterName: PropTypes.string.isRequired,
+  filterRare: PropTypes.string.isRequired,
+  filterTrunfo: PropTypes.bool.isRequired,
 };
 
 export default Filters;

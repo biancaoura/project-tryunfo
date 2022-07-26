@@ -4,17 +4,29 @@ import Card from './Card';
 
 class AllCards extends Component {
   render() {
-    const { savedCards, deleteButton, filterName } = this.props;
+    const { savedCards, deleteButton, filterName, filterRare, filterTrunfo } = this.props;
 
-    const filteredCard = savedCards
-      .filter((card) => card.cardName.includes(filterName));
+    const filteredCard = () => {
+      const trunfoFilter = savedCards.filter(({ cardTrunfo }) => cardTrunfo === true);
+
+      if (filterTrunfo) return trunfoFilter;
+
+      const nameFilter = savedCards
+        .filter(({ cardName }) => cardName.includes(filterName));
+
+      const rareFilter = nameFilter
+        .filter(({ cardRare }) => cardRare === filterRare);
+
+      console.log(rareFilter);
+      return filterRare === 'todas' ? nameFilter : rareFilter;
+    };
 
     return (
-      <div>
+      <section className="card container">
         {
-          filteredCard
+          filteredCard()
             .map((cardInfo, index) => (
-              <section key={ index }>
+              <section key={ index } className="saved container">
 
                 <Card
                   { ...cardInfo }
@@ -32,7 +44,7 @@ class AllCards extends Component {
               </section>
             ))
         }
-      </div>
+      </section>
     );
   }
 }
@@ -41,6 +53,8 @@ AllCards.propTypes = {
   savedCards: PropTypes.arrayOf(PropTypes.object).isRequired,
   deleteButton: PropTypes.func.isRequired,
   filterName: PropTypes.string.isRequired,
+  filterRare: PropTypes.string.isRequired,
+  filterTrunfo: PropTypes.bool.isRequired,
 };
 
 export default AllCards;
