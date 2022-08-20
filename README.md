@@ -1,16 +1,19 @@
-# 🚧 README em construção 🚧
+# Tryunfo Project
 
-<!-- Olá, Tryber!
+## Goals
 
-Esse é apenas um arquivo inicial para o README do seu projeto.
+### Develop a game similar to `Top Trumps`, in which the user can:
 
-É essencial que você preencha esse documento por conta própria, ok?
+- Create a deck, with a theme of choice;
+- Add and remove cards from the deck;
+- See all of the cards.
 
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
+### Use React state to create a form with the tags:
 
-⚠️ IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
+- `input`, `textarea`, `select`, `form`, `checkbox`
 
--->
+### First project using React state
+
+##
+
+> Project developed with React
