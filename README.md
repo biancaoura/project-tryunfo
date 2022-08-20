@@ -14,6 +14,10 @@
 
 ### First project using React state
 
+[Check it out!](https://biancaoura.github.io/project-tryunfo/)
+
 ##
 
 > Project developed with React
+
+> :construction: CSS under construction
