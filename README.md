@@ -2,7 +2,7 @@
 
 ## Goals
 
-### Develop a game similar to `Top Trumps`, in which the user can:
+### Develop a game similar to _Top Trumps_, in which the user can:
 
 - Create a deck, with a theme of choice;
 - Add and remove cards from the deck;
