@@ -19,3 +19,5 @@
 ##
 
 > Project developed with React
+
+> :construction: CSS under construction
